@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Baanindeling TV</title>
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #14532d;
+    }
+
+    .screen {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: #14532d;
+    }
+
+    iframe {
+      position: absolute;
+      left: 0;
+      top: -34px;
+      width: 100%;
+      height: calc(100% + 34px);
+      border: 0;
+      margin: 0;
+      padding: 0;
+      display: block;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <iframe
+      id="baanframe"
+      src="PASTE_HIER_JE_APPS_SCRIPT_WEBAPP_URL?tv=1"
+      allow="fullscreen"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <script>
+    // Elke 6 uur een harde herlaadbeurt van de hele TV-pagina.
+    // De Apps Script-webapp zelf ververst de gegevens al iedere 30 seconden.
+    setTimeout(() => location.reload(), 6 * 60 * 60 * 1000);
+  </script>
+</body>
+</html>

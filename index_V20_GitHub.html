@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Baanindeling TV</title>
+  <style>
+    :root {
+      /* Pas alleen deze waarde aan als de Google-balk ooit hoger/lager wordt. */
+      --google-banner-crop: 24px;
+    }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0f5a2c;
+    }
+    .screen {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      background: #0f5a2c;
+    }
+    iframe {
+      position: absolute;
+      left: 0;
+      top: calc(-1 * var(--google-banner-crop));
+      width: 100%;
+      height: calc(100% + var(--google-banner-crop));
+      border: 0;
+      margin: 0;
+      padding: 0;
+      display: block;
+      background: #edf4ef;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <iframe
+      src="https://script.google.com/macros/s/AKfycbzv60NFk55k1lk32nOC0kZUEfVARaQABxJjgVpXY6lVGPycE2U3vFcB42PpXieaU16_/exec?tv=1"
+      allow="fullscreen"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <script>
+    // Periodieke herlaadbeurt van de wrapper; de webapp zelf ververst elke 30 sec.
+    setTimeout(() => location.reload(), 6 * 60 * 60 * 1000);
+  </script>
+</body>
+</html>
